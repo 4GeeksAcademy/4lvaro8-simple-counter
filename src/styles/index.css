@@ -1,12 +1,16 @@
+.container-fluid  {
+    height:auto;
+    text-align: center;
+    background-color: black;
+}
 
-/* 
-
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+.container-fluid > div{
+    width: 12%;
+    height: auto;
+    font-size: 6vw;
+    background-color: rgb(41, 41, 41);
+    color: aliceblue;
+    margin: 20px auto 20px;
+    border-radius: 10%;
+    border: 5px, solid rgb(48, 48, 48);
+}
