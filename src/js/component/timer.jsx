@@ -5,7 +5,7 @@ import React from "react";
 const Timer = (props) => {
 	return (
 
-		<div className="container-fluid d-flex justify-content-between w-75">
+		<div className="contador container-fluid d-flex justify-content-between w-75">
 			<div className="reloicono"><i class="fa-regular fa-clock"></i></div>
 
 			<div className="cienMiles">{props.cienMiles}</div>

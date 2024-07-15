@@ -1,10 +1,10 @@
-.container-fluid  {
+.contador  {
     height:auto;
     text-align: center;
     background-color: black;
 }
 
-.container-fluid > div{
+.contador > div{
     width: 12%;
     height: auto;
     font-size: 6vw;
