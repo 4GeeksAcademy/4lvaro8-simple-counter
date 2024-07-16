@@ -6,8 +6,8 @@ const Button = (props) => {
         <>
             <div className="button-container">
                 <button className='btn' onClick={props.btnReset}>Reset</button>
-                <button className='btn' onClick={props.stopTimer}>Stop</button>
-                <button className='btn' onClick={props.resumeTimer}>Resume</button>
+                <button className='btn' onClick={props.btnPause}>Pause</button>
+                <button className='btn' onClick={props.btnResume}>Resume</button>
             </div>
         </>
     );

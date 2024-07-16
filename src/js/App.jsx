@@ -10,7 +10,7 @@ import Button from './component/buttons.jsx';
 const App = () => {
 
     // Función del contador
-
+    
     const [contador, setContador] = useState(0);
 
     useEffect(() => {
@@ -24,19 +24,21 @@ const App = () => {
     }, [contador])
 
 
+
     // Funciones para los botones
 
     function resetTimer() {
-        setContador(0)
+        return setContador(0)
     }
 
-    function stopTimer() {
-        return
+    function pauseTimer () {
+        
     }
 
     function resumeTimer() {
-        return
+    
     }
+
 
     // Calculamos los segundos 
 
@@ -59,6 +61,8 @@ const App = () => {
 
             <Button
                 btnReset={resetTimer}
+                btnPause={pauseTimer}
+                btnResume={resumeTimer}
             />
 
         </>
