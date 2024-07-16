@@ -4,9 +4,8 @@ import React from "react";
 //create your first component
 const Timer = (props) => {
 	return (
-
 		<div className="contador container-fluid d-flex justify-content-between w-75">
-			<div className="reloicono"><i class="fa-regular fa-clock"></i></div>
+			<div className="reloicono"><i className="fa-regular fa-clock"></i></div>
 
 			<div className="cienMiles">{props.cienMiles}</div>
 			<div className="diezMiles">{props.diezMiles}</div>

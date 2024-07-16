@@ -2,10 +2,14 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import Timer from './component/timer.jsx'
+import Button from './component/buttons.jsx';
+
 
 
 
 const App = () => {
+
+    // Función del contador
 
     const [contador, setContador] = useState(0);
 
@@ -18,7 +22,23 @@ const App = () => {
         return () => clearInterval(interval)
 
     }, [contador])
-    
+
+
+    // Funciones para los botones
+
+    function resetTimer() {
+        setContador(0)
+    }
+
+    function stopTimer() {
+        return
+    }
+
+    function resumeTimer() {
+        return
+    }
+
+    // Calculamos los segundos 
 
     function calcularSegundos(a, b) {
 
@@ -27,16 +47,21 @@ const App = () => {
     }
 
     return (
+        <>
+            <Timer
+                cienMiles={calcularSegundos(contador, 100000)}
+                diezMiles={calcularSegundos(contador, 10000)}
+                miles={calcularSegundos(contador, 1000)}
+                centenas={calcularSegundos(contador, 100)}
+                decenas={calcularSegundos(contador, 10)}
+                unidades={calcularSegundos(contador, 1)}
+            />
 
-        <Timer
-            cienMiles={calcularSegundos(contador, 100000)}
-            diezMiles={calcularSegundos(contador, 10000)}
-            miles={calcularSegundos(contador, 1000)}
-            centenas={calcularSegundos(contador, 100)}
-            decenas={calcularSegundos(contador, 10)}
-            unidades={calcularSegundos(contador, 1)}
-        />
+            <Button
+                btnReset={resetTimer}
+            />
 
+        </>
     );
 }
 
