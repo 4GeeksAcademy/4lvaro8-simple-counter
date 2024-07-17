@@ -13,22 +13,34 @@ const App = () => {
 
     const [contador, setContador] = useState(0);
     const [timeInterval, setTimeInterval] = useState(false);
+    const [active, setActive] = useState(true);
 
-    // Function to start the timer
     useEffect(() => {
         setTimeInterval(setInterval(() => {
             setContador((contador) => contador + 1);
         }, 1000));
     }, []);
 
+  
+    // Función de reanudar el contador
 
-    let resumeContador = () => {
-        if (setTimeInterval !== true) {
+
+    let activarContador = () => {
+        if (active === false) {
+            setActive(true);
             setTimeInterval(setInterval(() => {
-                setContador((prev) => prev + 1);
+                setContador((contador) => contador + 1);
             }, 1000));
         }
     }
+
+    // Función de pausar el contador
+    let pauseContador = () => {
+        clearInterval(timeInterval);
+        setActive(false)
+    }
+
+    
 
 
     // Calculamos los segundos 
@@ -53,8 +65,8 @@ const App = () => {
 
             <Button
                 btnReset={() => setContador(0)}
-                btnPause={() => clearInterval(timeInterval)}
-                btnResume={resumeContador}
+                btnPause={pauseContador}
+                btnResume={activarContador}
             />
 
         </>
