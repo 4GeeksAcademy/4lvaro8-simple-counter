@@ -26,7 +26,7 @@ const App = () => {
 
 
     let activarContador = () => {
-        if (active === false) {
+        if (!active) {
             setActive(true);
             setTimeInterval(setInterval(() => {
                 setContador((contador) => contador + 1);
