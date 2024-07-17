@@ -10,33 +10,24 @@ import Button from './component/buttons.jsx';
 const App = () => {
 
     // Función del contador
-    
+
     const [contador, setContador] = useState(0);
+    const [timeInterval, setTimeInterval] = useState(false);
 
+    // Function to start the timer
     useEffect(() => {
-
-        let interval = setInterval(() => {
-            setContador(contador + 1);
-        }, 1000)
-
-        return () => clearInterval(interval)
-
-    }, [contador])
+        setTimeInterval(setInterval(() => {
+            setContador((contador) => contador + 1);
+        }, 1000));
+    }, []);
 
 
-
-    // Funciones para los botones
-
-    function resetTimer() {
-        return setContador(0)
-    }
-
-    function pauseTimer () {
-        
-    }
-
-    function resumeTimer() {
-    
+    let resumeContador = () => {
+        if (setTimeInterval !== true) {
+            setTimeInterval(setInterval(() => {
+                setContador((prev) => prev + 1);
+            }, 1000));
+        }
     }
 
 
@@ -47,6 +38,7 @@ const App = () => {
         return Math.floor(a / b) % 10;
 
     }
+
 
     return (
         <>
@@ -60,9 +52,9 @@ const App = () => {
             />
 
             <Button
-                btnReset={resetTimer}
-                btnPause={pauseTimer}
-                btnResume={resumeTimer}
+                btnReset={() => setContador(0)}
+                btnPause={() => clearInterval(timeInterval)}
+                btnResume={resumeContador}
             />
 
         </>
@@ -70,3 +62,5 @@ const App = () => {
 }
 
 export default App;
+
+
